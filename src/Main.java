@@ -5,16 +5,16 @@ import static java.lang.System.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(in);
-        ParkingManager parkingManager = new ParkingManager();
+        ParkingManager pm = new ParkingManager();
         while (true) {
             printMainMenu();
             String mainInput = scanner.nextLine();
             switch (mainInput) {
                 case "1":
-                    parkingManager.add(scanner);
+                    pm.add(scanner);
                     break;
                 case "2":
-                    parkingManager.remove(scanner);
+                    pm.remove(scanner);
                     break;
                 case "q":
                     return;
