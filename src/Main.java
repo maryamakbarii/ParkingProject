@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
+import static java.lang.System.*;
+
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(in);
         ParkingManager parkingManager = new ParkingManager();
         while (true) {
             printMainMenu();
@@ -17,18 +19,19 @@ public class Main {
                 case "q":
                     return;
                 default:
-                    System.out.println("Error! Try Again");
+                    out.println("Error! Try Again");
+                    break;
             }
         }
     }
 
     private static void printMainMenu() {
-        System.out.println("*******************");
-        System.out.println("Parking Manager Program");
-        System.out.println("*******************");
-        System.out.println("1. Add Vehicle");
-        System.out.println("2. Remove Vehicle");
-        System.out.println("q. Quite");
-        System.out.print(">>>");
+        out.println("*******************");
+        out.println("Parking Manager Program");
+        out.println("*******************");
+        out.println("1. Add Vehicle");
+        out.println("2. Remove Vehicle");
+        out.println("q. Quite");
+        out.print(">>>");
     }
 }

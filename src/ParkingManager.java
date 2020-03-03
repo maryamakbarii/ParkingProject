@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static java.lang.System.*;
 class ParkingManager {
     ArrayList<Vehicle> vehicles = new ArrayList<>();
     int lastID = 0;
@@ -18,21 +19,21 @@ class ParkingManager {
                 vehicle = new Bike(++lastID);
                 break;
             default:
-                System.out.println("Error! Try Again.");
+                out.println("Error! Try Again.");
                 return 0;
         }
-        System.out.println("Please,Enter EntryHour :");
+        out.println("Please,Enter EntryHour :");
         input = scanner.nextLine();
         int entryHour = 0;
         try {
             entryHour = Integer.parseInt(input);
         } catch (NumberFormatException n) {
-            System.out.println("Error!Try Again.");
+            out.println("Error!Try Again.");
         }
         if (entryHour < 0 || entryHour > 23) {
-            System.out.println("Error!Try Again.");
+            out.println("Error!Try Again.");
         }
-        System.out.println("ID: " + lastID);
+        out.println("ID: " + lastID);
 
 
         vehicle.setEntryHour(entryHour);
@@ -42,21 +43,21 @@ class ParkingManager {
 
     void remove(Scanner scanner) {
         if (vehicles == null || vehicles.isEmpty()) {
-            System.out.println("Parking Is Empty!");
+            out.println("Parking Is Empty!");
             return;
         }
-        System.out.println("Please,Enter ID :");
+        out.println("Please,Enter ID :");
         String userInput = scanner.nextLine();
         int id = Integer.parseInt(userInput);
 
         for (int i = 0; i < vehicles.size(); i++) {
             Vehicle vehicle = vehicles.get(i);
             if (vehicle.getId() == id) {
-                System.out.println("Please!Enter ExitHour :");
+                out.println("Please!Enter ExitHour :");
                 userInput = scanner.nextLine();
                 int exitHourInp = Integer.parseInt(userInput);
                 if (exitHourInp < 0 || exitHourInp > 23) {
-                    System.out.println("Please Enter Hour Between 0 , 23");
+                    out.println("Please Enter Hour Between 0 , 23");
                 }
                 vehicle.setExitHour(exitHourInp);
                 printBill(vehicle);
@@ -68,21 +69,21 @@ class ParkingManager {
 
 
     private void showAddMenu() {
-        System.out.println("****************");
-        System.out.println(" Add Vehicle");
-        System.out.println("****************");
-        System.out.println("1. Add Car");
-        System.out.println("2. Add Bike");
-        System.out.print(">>>");
+        out.println("****************");
+        out.println(" Add Vehicle");
+        out.println("****************");
+        out.println("1. Add Car");
+        out.println("2. Add Bike");
+        out.print(">>>");
     }
 
     private void printBill(Vehicle vehicle) {
-        System.out.println("----------------------");
-        System.out.println("         BILL");
-        System.out.println("----------------------");
-        System.out.println("EntryHour : " + vehicle.getEntryHour());
-        System.out.println("ExitHour : " + vehicle.getExitHour());
-        System.out.println("Total Price : " + vehicle.getCost());
+        out.println("----------------------");
+        out.println("         BILL");
+        out.println("----------------------");
+        out.println("EntryHour : " + vehicle.getEntryHour());
+        out.println("ExitHour : " + vehicle.getExitHour());
+        out.println("Total Price : " + vehicle.getCost());
     }
 
 }
