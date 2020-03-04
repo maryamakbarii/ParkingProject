@@ -29,16 +29,19 @@ class ParkingManager {
             entryHour = Integer.parseInt(input);
         } catch (NumberFormatException n) {
             out.println("Error!Try Again.");
+
         }
         if (entryHour < 0 || entryHour > 23) {
             out.println("Error!Try Again.");
+        } else {
+            out.println("ID: " + lastID);
+
+
+            vehicle.setEntryHour(entryHour);
+            vehicles.add(vehicle);
+            return lastID;
         }
-        out.println("ID: " + lastID);
-
-
-        vehicle.setEntryHour(entryHour);
-        vehicles.add(vehicle);
-        return lastID;
+        return 0;
     }
 
     void remove(Scanner scanner) {
@@ -63,7 +66,7 @@ class ParkingManager {
                 printBill(vehicle);
                 vehicles.remove(i);
             }
-        }
+        }//
 
     }
 
